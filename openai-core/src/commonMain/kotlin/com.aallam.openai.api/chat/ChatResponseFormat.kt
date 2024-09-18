@@ -2,6 +2,7 @@ package com.aallam.openai.api.chat
 
 import kotlinx.serialization.SerialName
 import kotlinx.serialization.Serializable
+import kotlinx.serialization.json.JsonObject
 
 /**
  * An object specifying the format that the model must output.
@@ -11,7 +12,11 @@ public data class ChatResponseFormat(
     /**
      * Response format type.
      */
-    @SerialName("type") val type: String
+    @SerialName("type") val type: String,
+    /**
+     * Json format that is to be used when type is given as 'json_schema'. Ignored otherwise.
+     */
+    @SerialName("json_schema") val jsonSchema: JsonObject? = null
 ) {
 
     public companion object {
